@@ -125,6 +125,8 @@ export async function createPod(
     mergePodSpecWithOptions(appPod.spec, extension.spec)
   }
 
+  core.warning("joshgc in createPod");
+  core.warning("joshgc requesting createNamespacedPod: " + JSON.stringify(appPod));
   const { body } = await k8sApi.createNamespacedPod(namespace(), appPod)
   return body
 }
